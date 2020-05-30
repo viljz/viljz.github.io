@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="LIU JIZHOU"><title>Node 中的模块系统 · 个人博客网站 | 专注前端开发</title><meta name="description" content="加载 require :
+路径形式的模块:
+/ 磁盘根目录 (基本不用)
+./ 当前目录，不可省略
+../ 上一级目录，不可省略
+
+
+核心模块加载
+核心模块文件已经被编译到了二进制文件中，只需要按照名字加载就可以
+
+
+第三方模块加载
+第三方模块都必须通过 npm 来下载
+使用的时候通过 requir"><meta name="keywords" content="前端开发,个人博客,node,web,javascript,jquery,canvas,php,html5,css3"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:127px;"><h3 title><a href="/">LIU JIZHOU</a></h3><div class="description"><p>What you have is doomed, please cherish what you have, because nothing is eternal.</p></div></div></div><ul class="social-links"></ul><div class="footer"><span>© ownership of copyright & </span><a target="_blank" href="/"><span>Liu Jizhou</span></a><div class="by_farbox"><span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"></span><span>次</span></span><span style="padding: 0 5px">|</span><span id="busuanzi_container_site_uv">本站总访客数 <span id="busuanzi_value_site_uv"></span><span>人</span></span></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/time">时间轴</a></li><li><a href="/about">关于我</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><a href="https://github.com/viljz" target="_blank"><img src="/images/github.png"></a></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Node 中的模块系统</a></h3></div><div class="post-content"><h4 id="加载-require"><a href="#加载-require" class="headerlink" title="加载 require :"></a>加载 require :</h4><ul>
+<li>路径形式的模块:<ul>
+<li><code>/</code> 磁盘根目录 (基本不用)</li>
+<li><code>./</code> 当前目录，不可省略</li>
+<li><code>../</code> 上一级目录，不可省略</li>
+</ul>
+</li>
+<li>核心模块加载<ul>
+<li>核心模块文件已经被编译到了二进制文件中，只需要按照名字加载就可以</li>
+</ul>
+</li>
+<li>第三方模块加载<ul>
+<li>第三方模块都必须通过 npm 来下载</li>
+<li>使用的时候通过 require(‘包名’) 进行加载使用</li>
+<li>不可能有任何一个第三方包和核心模块的名字是一样的</li>
+<li>既不是核心模块、也不是路径形式的模块<ul>
+<li>先找到当前文件所处目录中的 node_modules 目录</li>
+<li>node_modules/art-template</li>
+<li>node_modules/art-template/package.json 文件</li>
+<li>node_modules/art-template/package.json 文件中的 main 属性</li>
+<li>main 属性中就记录了 art-template 的入口模块</li>
+<li>然后加载使用这个第三方包</li>
+<li>如果 package.json 文件不存在或者 main 指定的入口模块是也没有</li>
+<li>则 node 会自动找该目录下的 index.js</li>
+<li>index.js 会作为一个默认备选项</li>
+<li>如果以上都不成立，则会进入上一级目录中的 node_modules 目录查找</li>
+<li>如果上一级还没有，则继续往上上一级查找</li>
+<li>直到当前磁盘根目录还找不到，最后报错： can not find module xxx</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="导出-exports"><a href="#导出-exports" class="headerlink" title="导出 exports"></a>导出 exports</h4><ul>
+<li>导出多个成员：exports.xxx = xxx</li>
+<li>导出多个成员也可以：module.exports = { demo : function () {} }</li>
+<li>导出单个成员：module.exports = xxx</li>
+</ul>
+<h4 id="module-exports"><a href="#module-exports" class="headerlink" title="module.exports"></a>module.exports</h4><p>module 和 module.exports的区别: </p>
+<ul>
+<li><p>每个模块中都有一个 module 对象</p>
+</li>
+<li><p>module 对象中有一个 exports 对象</p>
+</li>
+<li>我们可以把需要导出的成员都挂载到 <code>moudle.exports.xxx = xxx</code> 接口对象中</li>
+<li>但是每次都这样很麻烦, 所以 Node 在每一个模块中都提供了一个成员叫：<code>exports</code></li>
+<li><code>exports === module.exports</code> 结果为  <code>true</code></li>
+<li><code>moudle.exports.xxx = xxx</code>  === <code>expots.xxx = xxx</code></li>
+<li>一个模块需要导出单个成员时，必须使用：<code>module.exports = xxx</code> 的方式</li>
+<li>不要使用 <code>exports = xxx</code> 因为每个模块最终向外 <code>return</code> 的是 <code>module.exports</code></li>
+<li>而 <code>exports</code> 只是 <code>module.exports</code> 的一个引用</li>
+<li>所以即便你为 <code>exports = xx</code> 重新赋值，也不会影响 <code>module.exports</code></li>
+<li>有一种赋值方式比较特殊：<code>exports = module.exports</code> 重新建立引用关系</li>
+</ul>
+<h4 id="require-加载规则"><a href="#require-加载规则" class="headerlink" title="require 加载规则"></a>require 加载规则</h4><ul>
+<li>优先从缓存加载</li>
+<li>如果在 a 中已经加载过 b 了,就不会重复加载</li>
+<li>重复加载可以拿到其中的接口对象，但是不会重复执行里面的代码</li>
+<li>这样做的目的是为了避免重复加载，提高模块加载效率</li>
+</ul>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-05-09</span><i class="fa fa-tag"></i></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2019/05/11/05-MongoDB数据库/" title="MongoDB 数据库概念,配置已经使用">Post Anterior</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2019/05/06/03-Node原生服务器/" title="Node 简单的原生 Web 服务器">Próximo post</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/busuanzi.pure.mini.js"></script></body></html>
