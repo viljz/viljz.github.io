@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="LIU JIZHOU"><title>Hexo+Github搭建博客 · 个人博客网站 | 专注前端开发</title><meta name="description" content="前言：电脑操作系统为window 10专业版，64位
+1、安装Node.js并配置运行环境，打开cmd命令行，成功界面如下
+2、安装Git并配置运行环境，安装成功的象征就是在电脑上任何位置鼠标右键能够出现如下两个选择
+注意：一般出于安全考虑，只有在Git Bash Here中才能进行Git的相关操作"><meta name="keywords" content="前端开发,个人博客,node,web,javascript,jquery,canvas,php,html5,css3"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:127px;"><h3 title><a href="/">LIU JIZHOU</a></h3><div class="description"><p>What you have is doomed, please cherish what you have, because nothing is eternal.</p></div></div></div><ul class="social-links"></ul><div class="footer"><span>© ownership of copyright & </span><a target="_blank" href="/"><span>Liu Jizhou</span></a><div class="by_farbox"><span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"></span><span>次</span></span><span style="padding: 0 5px">|</span><span id="busuanzi_container_site_uv">本站总访客数 <span id="busuanzi_value_site_uv"></span><span>人</span></span></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/time">时间轴</a></li><li><a href="/about">关于我</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><a href="https://github.com/viljz" target="_blank"><img src="/images/github.png"></a></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Hexo+Github搭建博客</a></h3></div><div class="post-content"><p>前言：电脑操作系统为window 10专业版，64位</p>
+<h3 id="1、安装Node-js并配置运行环境，打开cmd命令行，成功界面如下"><a href="#1、安装Node-js并配置运行环境，打开cmd命令行，成功界面如下" class="headerlink" title="1、安装Node.js并配置运行环境，打开cmd命令行，成功界面如下"></a>1、安装Node.js并配置运行环境，打开cmd命令行，成功界面如下</h3><p><img src="/images/hexo+github/Hexo+Github1.png" alt></p>
+<h3 id="2、安装Git并配置运行环境，安装成功的象征就是在电脑上任何位置鼠标右键能够出现如下两个选择"><a href="#2、安装Git并配置运行环境，安装成功的象征就是在电脑上任何位置鼠标右键能够出现如下两个选择" class="headerlink" title="2、安装Git并配置运行环境，安装成功的象征就是在电脑上任何位置鼠标右键能够出现如下两个选择"></a>2、安装Git并配置运行环境，安装成功的象征就是在电脑上任何位置<strong>鼠标右键</strong>能够出现如下两个选择</h3><p><img src="/images/hexo+github/Hexo+Github2.png" alt></p>
+<p>注意：一般出于安全考虑，只有在Git Bash Here中才能进行Git的相关操作。如果需要在cmd命令行里调用Git，那么就要配置电脑的环境变量Path，或者在安装的时候选择use Git from the Windows Command<br>Prompt。这个可有可无，影响不大，成功配置的界面如图</p>
+<p><img src="/images/hexo+github/Hexo+Github3.png" alt></p>
+<h3 id="3、Github账户注册和新建项目，项目必须要遵守格式：账户名-github-io，不然接下来会有很多麻烦。并且需要勾选Initialize-this-repository-with-a-README"><a href="#3、Github账户注册和新建项目，项目必须要遵守格式：账户名-github-io，不然接下来会有很多麻烦。并且需要勾选Initialize-this-repository-with-a-README" class="headerlink" title="3、Github账户注册和新建项目，项目必须要遵守格式：账户名.github.io，不然接下来会有很多麻烦。并且需要勾选Initialize this repository with a README"></a>3、Github账户注册和新建项目，项目必须要遵守格式：账户名.github.io，不然接下来会有很多麻烦。并且需要勾选Initialize this repository with a README</h3><p><img src="/images/hexo+github/Hexo+Github4.png" alt></p>
+<p>在建好的项目右侧有个<strong>settings</strong>按钮，点击它，向下拉到<strong>GitHub Pages</strong>，你会看到那边有个网址，访问它，你将会惊奇的发现该项目已经被部署到网络上，能够通过外网来访问它。</p>
+<p><img src="/images/hexo+github/Hexo+Github5.png" alt></p>
+<h3 id="4、安装Hexo，在自己认为合适的地方创个文件夹，我是在D盘建了一个blog文件夹。然后通过命令行进入到该文件夹里面"><a href="#4、安装Hexo，在自己认为合适的地方创个文件夹，我是在D盘建了一个blog文件夹。然后通过命令行进入到该文件夹里面" class="headerlink" title="4、安装Hexo，在自己认为合适的地方创个文件夹，我是在D盘建了一个blog文件夹。然后通过命令行进入到该文件夹里面"></a>4、安装Hexo，在自己认为合适的地方创个文件夹，我是在D盘建了一个blog文件夹。然后通过命令行进入到该文件夹里面</h3><p><img src="/images/hexo+github/Hexo+Github6.png" alt></p>
+<p>输入<code>npm install hexo -g</code>开始安装Hexo</p>
+<p><img src="/images/hexo+github/Hexo+Github7.png" alt></p>
+<p>输入<code>hexo -v</code>检查<strong>hexo</strong>是否安装成功</p>
+<p><img src="/images/hexo+github/Hexo+Github8.png" alt></p>
+<p>输入<code>hexo init</code>初始化该文件夹（初始化时间比较长）</p>
+<p><img src="/images/hexo+github/Hexo+Github9.png" alt></p>
+<p>输入<code>npm install</code>安装所需要的组件，我这里已经安装过了</p>
+<p><img src="/images/hexo+github/Hexo+Github10.png" alt></p>
+<p>输入<code>hexo g</code>初始化<strong>MD</strong>文件为<strong>HTML</strong>文件</p>
+<p><img src="/images/hexo+github/Hexo+Github11.png" alt></p>
+<p>输入<code>hexo s</code>开启服务器，访问该网址，可浏览<strong>Hexo</strong>博客</p>
+<p><img src="/images/hexo+github/Hexo+Github12.png" alt></p>
+<p>问题：假如页面一直无法跳转，那么可能端口被占用了。此时我们<strong>ctrl+c</strong>停止服务器，接着输入<code>hexo server -p 端口号</code>来改变端口号</p>
+<p><img src="/images/hexo+github/Hexo+Github13.png" alt></p>
+<p>那么出现如下图就成功了</p>
+<p><img src="/images/hexo+github/Hexo+Github14.png" alt></p>
+<h3 id="5、将Hexo与Github-page联系起来，设置Git的user-name和email（首次操作需要设置）"><a href="#5、将Hexo与Github-page联系起来，设置Git的user-name和email（首次操作需要设置）" class="headerlink" title="5、将Hexo与Github page联系起来，设置Git的user name和email（首次操作需要设置）"></a>5、将Hexo与Github page联系起来，设置Git的user name和email（首次操作需要设置）</h3><p><img src="/images/hexo+github/Hexo+Github15.png" alt></p>
+<p>上图是在其文件夹里面鼠标右键，点击Git Base Here。这里<strong>vljz</strong>可以替换成自己的用户名，邮箱可以替换成自己的邮箱</p>
+<p>输入<code>cd ~/.ssh</code>检查是否由.ssh的文件夹</p>
+<p><img src="/images/hexo+github/Hexo+Github16.png" alt></p>
+<p>输入<code>ls</code>列出该文件下的内容。下图说明存在</p>
+<p><img src="/images/hexo+github/Hexo+Github17.png" alt></p>
+<p>输入<code>ssh-keygen -t rsa -C &quot;201469098@qq.com&quot;</code>连续三个回车，生成密钥，最后得到了两个文件：<strong>id_rsa</strong>和<strong>id_rsa.pub</strong>（默认存储路径是：<code>C:\Users\Administrator\.ssh</code>）。</p>
+<p><img src="/images/hexo+github/Hexo+Github18.png" alt></p>
+<p>输入<code>eval &quot;$(ssh-agent -s)&quot;</code>添加密钥到 <strong>ssh-agent</strong></p>
+<p><img src="/images/hexo+github/Hexo+Github19.png" alt></p>
+<p>再输入<code>ssh-add ~/.ssh/id_rsa</code>添加生成的<strong>SSH key</strong>到<strong>ssh-agent</strong></p>
+<p><img src="/images/hexo+github/Hexo+Github20.png" alt></p>
+<p>登录<strong>Github</strong>,点击头像下的<strong>settings</strong>，添加<strong>ssh</strong>，<strong>new ssh key</strong>，将<strong>id_rsa.pub</strong>文件里的内容复制上去</p>
+<p><img src="/images/hexo+github/Hexo+Github21.png" alt></p>
+<p>输入 <code>ssh -T git@github.com</code> 测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</p>
+<p><img src="/images/hexo+github/Hexo+Github22.png" alt></p>
+<p><strong>问题：</strong>假如ssh-key配置失败，那么只要以下步骤就能完全解决:</p>
+<p>首先，清除所有的key-pair</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add -D</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>在 github 中删除公钥SSH keys </p>
+<p>重新生成ssh密钥对 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;201469098@qq.com&quot;</span><br></pre></td></tr></table></figure>
+<p>在github上添加公钥SSH keys </p>
+<h3 id="6、配置Deployment，在其文件夹中，找到-config-yml文件，修改repo值（在文件最末尾）"><a href="#6、配置Deployment，在其文件夹中，找到-config-yml文件，修改repo值（在文件最末尾）" class="headerlink" title="6、配置Deployment，在其文件夹中，找到_config.yml文件，修改repo值（在文件最末尾）"></a>6、配置Deployment，在其文件夹中，找到_config.yml文件，修改repo值（在文件最末尾）</h3><p><img src="/images/hexo+github/Hexo+Github23.png" alt></p>
+<p>repo值是你在github项目里的ssh（右下角）</p>
+<p><img src="/images/hexo+github/Hexo+Github24.png" alt></p>
+<h3 id="7、新建一篇博客，在cmd执行命令：hexo-new-post-“博客名”"><a href="#7、新建一篇博客，在cmd执行命令：hexo-new-post-“博客名”" class="headerlink" title="7、新建一篇博客，在cmd执行命令：hexo new post “博客名”"></a>7、新建一篇博客，在cmd执行命令：hexo new post “博客名”</h3><p><img src="/images/hexo+github/Hexo+Github25.png" alt></p>
+<p>这时候在文件夹<strong>_posts</strong>目录下将会看到已经创建的文件</p>
+<p><img src="/images/hexo+github/Hexo+Github26.png" alt></p>
+<p>在生成以及部署文章之前，需要安装一个扩展：<code>npm install hexo-deployer-git --save</code></p>
+<p><img src="/images/hexo+github/Hexo+Github27.png" alt></p>
+<p>使用编辑器编好文章，那么就可以使用命令：<code>hexo d -g</code> 生成以及部署到github创库了</p>
+<p><img src="/images/hexo+github/Hexo+Github28.png" alt></p>
+<p>部署成功后（预计十分钟后）访问你的地址：<code>http://用户名.github.io</code>。那么将看到生成的文章</p>
+<p><img src="/images/hexo+github/Hexo+Github29.png" alt></p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-02-15</span><i class="fa fa-tag"></i></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2019/02/28/02-ECharts数据可视化/" title="ECharts 数据可视化">Post Anterior</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/busuanzi.pure.mini.js"></script></body></html>
